@@ -17,7 +17,7 @@ var router = express.Router();
         if (!err)
         {
           console.log('The solution is: ', rows);
-          return rows;
+          res.json(rows)
         }
         else
         {
