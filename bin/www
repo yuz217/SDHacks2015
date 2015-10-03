@@ -7,3 +7,16 @@ app.set('port', process.env.PORT || 3000);
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
 });
+
+// Setting up socket.io
+var io = require('socket.io').listen(server);
+io.on('connection', function(socket){
+    console.log('a user connected');
+    socket.on('disconnect', function(){
+        console.log('user disconnected');
+    });
+    socket.on('chat message', function(msg){
+        console.log('message: ' + msg);
+        io.emit('emit message', msg);
+    });
+});
