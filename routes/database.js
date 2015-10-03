@@ -8,7 +8,7 @@ var pool = mysql.createPool({
      user     : 'root',
      password : 'keyboard cat',
      database : 'SDHacks2015',
-     debug    :  false
+     debug    :  true
  });
 
  function handle_database(req,res) {
@@ -31,7 +31,8 @@ var pool = mysql.createPool({
          });
 
          connection.on('error', function(err) {
-               res.json({"code" : 100, "status" : "Error in connection database"});
+               //res.json({"code" : 100, "status" : "Error in connection database"});
+               res.json(err);
                return;
          });
    });
