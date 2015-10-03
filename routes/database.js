@@ -41,7 +41,9 @@ var pool = mysql.createPool({
             host     : '45.55.30.181',
             user     : 'root',
             password : 'keyboard cat',
-            database : 'SDHacks2015'
+            database : 'SDHacks2015',
+            port     :  3306,
+            socket   :  '/var/run/mysqld/mysqld.sock'
           });
 
           connection.connect();
