@@ -1,4 +1,7 @@
 extends layout
 
 block content
-  h1 READ PAGE
+  div(ng-controller="ReadCtrl")
+    h1 {{firstStory}}
+    p {{firstDate}}
+    p {{firstViews}}
