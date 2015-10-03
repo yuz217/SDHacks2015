@@ -1,9 +1,11 @@
 doctype html
-html
+html(ng-app='fin')
   head
     title= title
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.js')
+    script(src='/javascripts/controllers.js')
     block style
   body
     include navbar.jade
