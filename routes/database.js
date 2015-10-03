@@ -26,7 +26,7 @@ var pool = mysql.createPool({
              connection.release();
              if(!err) {
                  res.json(rows);
-                 console.log(rows);
+                 return rows;
              }
          });
 
