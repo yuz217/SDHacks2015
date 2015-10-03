@@ -1,11 +1,10 @@
 extends layout
 
 block head
-    link(href="/stylesheets/write.css", rel="stylesheet")
+    link(href="/stylesheets/write-story.css", rel="stylesheet")
 
-    script(type='text/javascript', src='bower_components/jquery/dist/jquery.min.js')
-    script(type='text/javascript', src='bower_components/socket.io-client/socket.io.js')
-    script(type='text/javascript', src='javascripts/story.js')
+    script(type='text/javascript', src='/bower_components/socket.io-client/socket.io.js')
+    script(type='text/javascript', src='/javascripts/write-story.js')
 
 block content
     h1 Write a Story
