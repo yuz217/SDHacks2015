@@ -2,68 +2,32 @@ var express = require('express');
 var mysql = require('mysql');
 var router = express.Router();
 
-var pool = mysql.createPool({
-     connectionLimit : 100,
-     host     : '45.55.30.181',
-     user     : 'root',
-     password : 'keyboard cat',
-     database : 'SDHacks2015',
-     debug    :  true
- });
 
  function handle_database(req,res) {
-     pool.getConnection(function(err,connection){
-       /*
-         if (err) {
-           //connection.release();
-           res.json({"code" : 100, "status" : "Error in connection database"});
-           return;
-         }
+      var connection = mysql.createConnection({
+        host     : 'kawaiikrew.net',
+        user     : 'root',
+        password : 'J^mpStrt',
+        database : 'takeyout'
+      });
 
-         console.log('connected as id ' + connection.threadId);
+      connection.connect();
 
-         //print all stories
-         connection.query("select * from stories",function(err,rows){
-             connection.release();
-             if(!err) {
-                 res.json(rows);
-                 return rows;
-             }
-         });
+      connection.query('SELECT * from user', function(err, rows, fields) {
+        if (!err)
+        {
+          console.log('The solution is: ', rows);
+          res.json(rows)
+        }
+        else
+        {
+          console.log('Error while performing Query.');
+          res.json(err)
+        }
+      });
 
-         connection.on('error', function(err) {
-               //res.json({"code" : 100, "status" : "Error in connection database"});
-               res.json(err);
-               return;
-         });
-         */
-          var connection = mysql.createConnection({
-            host     : '45.55.30.181',
-            user     : 'root',
-            password : 'keyboard cat',
-            database : 'SDHacks2015',
-            port     :  3306,
-            socket   :  '/var/run/mysqld/mysqld.sock'
-          });
-
-          connection.connect();
-
-          connection.query('SELECT * from stories', function(err, rows, fields) {
-            if (!err)
-            {
-              console.log('The solution is: ', rows);
-              res.json(rows)
-            }
-            else
-            {
-              console.log('Error while performing Query.');
-              res.json(err)
-            }
-          });
-
-          connection.end();
-   });
- }
+      connection.end();
+}
 
 router.get('/', function(req, res) {
     handle_database(req,res);
