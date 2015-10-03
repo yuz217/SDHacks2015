@@ -5,15 +5,15 @@ var router = express.Router();
 
  function handle_database(req,res) {
       var connection = mysql.createConnection({
-        host     : 'kawaiikrew.net',
+        host     : 'localhost',
         user     : 'root',
-        password : 'J^mpStrt',
-        database : 'takeyout'
+        password : 'keyboard cat',
+        database : 'SDHacks2015'
       });
 
       connection.connect();
 
-      connection.query('SELECT * from user', function(err, rows, fields) {
+      connection.query('SELECT * from stories', function(err, rows, fields) {
         if (!err)
         {
           console.log('The solution is: ', rows);
