@@ -1,6 +1,4 @@
-var socket_app = angular.module('socketApp',[]);
-
-socket_app.controller('socketCtrl', function($scope, $sce) {
+myApp.controller('socketCtrl', function($scope, $sce) {
     var socket = io();
 
     $scope.message = "";

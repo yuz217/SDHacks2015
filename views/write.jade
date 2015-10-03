@@ -3,14 +3,14 @@ extends layout
 block head
     link(href="/stylesheets/write.css", rel="stylesheet")
 
+    script(type='text/javascript', src='bower_components/socket.io-client/socket.io.js')
+    script(type='text/javascript', src='javascripts/socketio.js')
+
 block content
     h1 Write a Story
-    div(ng-app="socketApp", ng-controller="socketCtrl")
+    div(ng-controller="socketCtrl")
         form
             input(type="text", ng-model="message")
             button(type="submit", ng-click="sendMessage()") Send
         div(ng-bind="label")
         ul(id="messagesList", ng-bind-html="messagesListSafe")
-    script(type='text/javascript', src='bower_components/angular/angular.min.js')
-    script(type='text/javascript', src='bower_components/socket.io-client/socket.io.js')
-    script(type='text/javascript', src='javascripts/socketio.js')
