@@ -40,3 +40,5 @@ var pool = mysql.createPool({
 router.get('/', function(req, res) {
     handle_database(req,res);
 });
+
+module.exports = router;
