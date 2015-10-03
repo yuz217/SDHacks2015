@@ -1,4 +1,4 @@
-myApp.controller('socketCtrl', function($scope, $sce) {
+myApp.controller('StoryCtrl', function($scope, $sce) {
     var socket = io();
 
     $scope.message = "";
