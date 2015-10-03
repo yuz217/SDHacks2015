@@ -13,6 +13,7 @@ var pool = mysql.createPool({
 
  function handle_database(req,res) {
      pool.getConnection(function(err,connection){
+       /*
          if (err) {
            //connection.release();
            res.json({"code" : 100, "status" : "Error in connection database"});
@@ -35,6 +36,26 @@ var pool = mysql.createPool({
                res.json(err);
                return;
          });
+         */
+          var connection = mysql.createConnection({
+            host     : '45.55.30.181',
+            user     : 'root',
+            password : 'keyboard cat',
+            database : 'SDHacks2015'
+          });
+
+          connection.connect();
+
+          connection.query('SELECT * from stories', function(err, rows, fields) {
+            if (!err)
+              console.log('The solution is: ', rows);
+              res.json(rows)
+            else
+              console.log('Error while performing Query.');
+              res.json(err)
+          });
+
+          connection.end();
    });
  }
 
