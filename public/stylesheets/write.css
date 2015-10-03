@@ -1,3 +1,23 @@
-#messagesList li{
+#messagesList {
+    height: 80%;
+    width: 90%;
+    border: 1px solid #c7c7c7;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: white;
+}
+
+#messagesList li {
     list-style-type: none;
+}
+
+#messagesList li button {
+    margin-right: 2%;
+}
+
+#inputArea {
+    width: 90%;
+    padding: 0px;
+    resize: none;
 }
