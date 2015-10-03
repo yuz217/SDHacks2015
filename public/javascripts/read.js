@@ -6,11 +6,9 @@ myApp.controller('ReadCtrl',function($scope)
 	$scope.stories = [];
 	$.get("http://45.55.30.181:3000/getStories", {}, function(data)
 	{
-		alert(data);
 		//var parsed = JSON.parse(data);
 
 		var parsed = data;
-		console.log("Here");
 		for (var i = 0; i < parsed.length; i++)
 		{
 			var obj = parsed[i];
