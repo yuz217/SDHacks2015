@@ -6,9 +6,3 @@ body {
 a {
   color: #00B7FF;
 }
-
-.nav navbar-nav {
-    float:none;
-    display:inline-block;
-    vertical-align: top;
-}
