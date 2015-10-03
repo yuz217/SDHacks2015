@@ -1,4 +1,14 @@
 extends layout
 
 block content
-  h1 WRITE PAGE
+  div.modal fade
+    div.modal-dialog
+      div.modal-content
+        div.modal-header
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close"): span(aria-hidden="true") &times;
+            h4(class="modal-title") Username
+        div.modal-body
+          p asdfasdf&hellip;
+        div.modal-footer
+          button(type="button" class="btn btn-defautl" data-dismiss="modal") Close
+          button(type="button" class="btn btn-primary") Yolo
