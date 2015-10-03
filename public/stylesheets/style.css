@@ -2,9 +2,12 @@ html {
     min-height: 100%;
 }
 
+h1 {font: 60px Gill Sans, sans-serif;
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px Gill Sans, sans-serif;
   min-height: 100%;
 
   background: rgba(255,255,255,1);
@@ -27,5 +30,5 @@ a {
 }
 
 p {
-  font: 24px "Lucida Grande", Comic Sans, Arial, sans-serif;
+  font: 24px Gill Sans, sans-serif;
 }
