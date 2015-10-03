@@ -14,7 +14,7 @@ $(document).ready(function() {
 });
 
 var options = {
-  backdrop: 'static',
-  show: true,
-  keyboard: false
+    backdrop: 'static',
+    show: true,
+    keyboard: false
 }

@@ -1,5 +1,10 @@
 extends layout
 
+block head
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+  link(rel='stylesheet' , href='/stylesheets/read.css')
+
+
 block content
   div(ng-controller="ReadCtrl")
     div(ng-repeat="story in stories")
