@@ -50,11 +50,15 @@ var pool = mysql.createPool({
 
           connection.query('SELECT * from stories', function(err, rows, fields) {
             if (!err)
+            {
               console.log('The solution is: ', rows);
               res.json(rows)
+            }
             else
+            {
               console.log('Error while performing Query.');
               res.json(err)
+            }
           });
 
           connection.end();
