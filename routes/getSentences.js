@@ -13,12 +13,12 @@ var router = express.Router();
 
       connection.connect();
 
-      var post = "";
-      connection.query('SELECT * FROM sentences WHERE ?', post, function(err, rows, fields) {
+      var postInput = req.body.storyID;
+      connection.query('SELECT * FROM sentences WHERE ?', postInput, function(err, rows, fields) {
         if (!err)
         {
           console.log('The solution is: ', rows);
-          res.json(rows)
+          return rows;
         }
         else
         {
