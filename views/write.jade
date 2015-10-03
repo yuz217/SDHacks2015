@@ -4,6 +4,27 @@ block head
     script(type='text/javascript', src='/javascripts/modal-username.js')
 
 block content
+<<<<<<< HEAD
+  div(ng-controller='writeSelectCtrl')
+    div.modal.fade(id="modal-username", role="dialog")
+      .modal-content
+        .modal-body
+          .form-group
+            label(for="name") Name
+            input(type="text" class="form-control" id="username" placeholder="Enter Name")
+        .modal-footer
+          //button(type="button", class="btn btn-default", data-dismiss="modal") Close
+          //button(type="button", class="btn btn-primary") Yolo
+          button(type="submit" class="btn btn-primary" id="submit") Enter
+
+    h1 Write a Story
+    div(ng-controller="socketCtrl")
+        form
+            input(type="text", ng-model="message")
+            button(type="submit", ng-click="sendMessage()") Send
+        div(ng-bind="label")
+        ul(id="messagesList", ng-bind-html="messagesListSafe")
+=======
   div.modal.fade(id="modal-username", role="dialog")
     .modal-content
       .modal-body
@@ -14,3 +35,4 @@ block content
         //button(type="button", class="btn btn-default", data-dismiss="modal") Close
         //button(type="button", class="btn btn-primary") Yolo
         button(type="submit" class="btn btn-primary" id="submit") Enter
+>>>>>>> 43ca8842f70e6e527c729956cc24b373ce5aaa82
