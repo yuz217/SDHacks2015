@@ -2,6 +2,7 @@ extends layout
 
 block content
   div(ng-controller="ReadCtrl")
-    h1 {{firstStory}}
-    p {{firstDate}}
-    p {{firstViews}}
+    div(ng-repeat="story in stories")
+      h1 {{story.firstSentence}}
+      p {{story.time}}
+      p {{story.views}}
