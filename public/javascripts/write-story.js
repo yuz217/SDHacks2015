@@ -4,8 +4,6 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
     $scope.message = "";
     $scope.messageList = [];
 
-    $scope.time = 15;
-
     var votesList;
     var messageCounter = 0;
 
@@ -27,14 +25,6 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
             socket.emit('vote', index);
         }
     };
-
-    socket.on('emit time', function(time){
-        if(begin) {
-            $scope.$apply(function() {
-                $scope.time = time
-            });
-        }
-    });
 
     socket.on('emit message', function(msg){
         if(begin) {
@@ -109,7 +99,6 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
     }
 
     function addSentence(sentence) {
-        console.log("ADDING SENTENCE: " + sentence);
         $.get("http://45.55.30.181:3000/addSentence", {storyID: 100, sentence: sentence, author: document.cookie }, function(data) {
 
         });
