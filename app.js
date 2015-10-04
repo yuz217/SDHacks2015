@@ -46,8 +46,8 @@ app.use('/addSentence', addSentence);
 app.use('/addStory', addStory);
 app.use('/finishStory', finishStory);
 app.use('/incrementViews', incrementViews);
-app.use('./incrementNumUsers', incrementNumUsers);
-app.use('./decrementNumUsers', decrementNumUsers);
+app.use('/incrementNumUsers', incrementNumUsers);
+app.use('/decrementNumUsers', decrementNumUsers);
 app.use('/viewStory', viewStory);
 
 // catch 404 and forward to error handler

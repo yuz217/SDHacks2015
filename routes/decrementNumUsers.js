@@ -3,7 +3,7 @@ var mysql = require('mysql');
 var router = express.Router();
 
 
- function handle_database(req,res) {
+ function decrementNumUsers(req,res) {
       var connection = mysql.createConnection({
         host     : 'localhost',
         user     : 'root',
@@ -31,7 +31,7 @@ var router = express.Router();
 }
 
 router.get('/', function(req, res) {
-    handle_database(req,res);
+    decrementNumUsers(req,res);
 });
 
 module.exports = router;
