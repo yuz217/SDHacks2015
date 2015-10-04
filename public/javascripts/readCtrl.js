@@ -1,5 +1,8 @@
-myApp.controller('writeSelectCtrl', function($scope) {
-	console.log('writeSelectCtrl');
+var myApp = angular.module('fin', []);
+
+myApp.controller('ReadCtrl',function($scope)
+{
+	console.log('ReadCtrl');
 	$scope.stories = [];
 	$.get("http://45.55.30.181:3000/getStories", {}, function(data)
 	{
@@ -9,22 +12,23 @@ myApp.controller('writeSelectCtrl', function($scope) {
 		for (var i = 0; i < parsed.length; i++)
 		{
 			var obj = parsed[i];
-			if (!obj.isComplete)
+			if (obj.isComplete)
 			{
 				$scope.stories.push({
 				storyID:obj.storyID,
-				numUsers:obj.numUsers,
+				time:obj.time,
+				views:obj.views,
 				firstSentence:obj.firstSentence
 				});
 			}
 		}
 
 		$scope.$digest();
-	});
+	})
 	
-		$scope.goToWriteStory = function(id)
+	$scope.goToStory = function(id)
 	{
-		console.log("Going to write story" + id);
-		window.location = "/write/story?storyID=" + id;
+		console.log("Going to story" + id);
+		window.location = "/viewStory?storyID=" + id;
 	}
-});
+})

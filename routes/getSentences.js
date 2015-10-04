@@ -1,7 +1,14 @@
+
+
 var express = require('express');
 var mysql = require('mysql');
 var router = express.Router();
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 280ad1d019188f4b9a4b50efab7e08210d2dd4dd
  function handle_sentence_table(req,res) {
 	
 	var connection = mysql.createConnection({

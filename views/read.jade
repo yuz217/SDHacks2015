@@ -1,13 +1,17 @@
 extends layout
 
 block head
-  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+  
   link(rel='stylesheet' , href='/stylesheets/read.css')
 
 
 block content
+
   div(ng-controller="ReadCtrl")
-    div(ng-repeat="story in stories")
-      h1 {{story.firstSentence}}
-      p {{story.time}}
-      p {{story.views}}
+    div.row
+      div.text-center
+        div(ng-repeat="story in stories")
+          div.col-lg-4
+            h1(ng-click="goToStory(story.storyID)") {{story.firstSentence}}
+            p {{story.time}}
+            p {{story.views}}
