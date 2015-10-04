@@ -5,7 +5,6 @@ block head
   link(rel='stylesheet' , href='/stylesheets/read-story.css')
 
 block content
-
   div(ng-controller="viewStoryCtrl" ng-click="clicked()")
     div.text-center
       h1(ng-show="notFinished") {{curSentence.sentence}}
