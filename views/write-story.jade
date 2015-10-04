@@ -7,11 +7,14 @@ block head
     script(type='text/javascript', src='/javascripts/write-story.js')
 
 block content
-    div.text-center
-      h1 Write a Story
-      div(ng-controller="StoryCtrl")
+    h1 Write a Story
+    div(ng-controller="StoryCtrl")
         form
-          input(id="inputArea", autofocus, ng-model="message")
-          button(type="submit", ng-click="sendMessage()") Send
-          button(ng-click="end()") End
-          ul(id="messagesList", ng-bind-html="messagesListSafe")
+            input(id="inputArea", autofocus, ng-model="message")
+            button(type="submit", ng-click="sendMessage()") Send
+        button(ng-click="startVote()") Start Vote
+        button(ng-click="endVote()") End Vote
+        ul(id="messageList")
+            div(ng-repeat="data in messageList")
+                button(type="submit", ng-click="vote($index)") Vote!
+                li {{data.votes}} {{data.msg}}
