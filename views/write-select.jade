@@ -3,6 +3,7 @@ extends layout
 block head
     script(type='text/javascript', src='/javascripts/modal-username.js')
     script(src='/javascripts/write-select.js')
+    link(rel='stylesheet' , href='/stylesheets/write-select.css')
 
 block content
   div(ng-controller='writeSelectCtrl')
@@ -13,8 +14,6 @@ block content
             label(for="name") Name
             input(type="text" class="form-control" id="username" placeholder="Enter Name")
         .modal-footer
-          //button(type="button", class="btn btn-default", data-dismiss="modal") Close
-          //button(type="button", class="btn btn-primary") Yolo
           button(type="submit" class="btn btn-primary" id="submit") Enter
           
     div(ng-repeat="story in stories")
