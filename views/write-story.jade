@@ -9,6 +9,7 @@ block head
 block content
     h1 Write a Story
     div(ng-controller="StoryCtrl")
+        h2.text-center Time: {{time}}
         form
             input.form-control(id="inputArea", autofocus, ng-model="message")
             button.btn.btn-primary(type="submit", ng-click="sendMessage()") Send
