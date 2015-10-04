@@ -12,8 +12,6 @@ block content
         form
             input.form-control(id="inputArea", autofocus, ng-model="message")
             button.btn.btn-primary(type="submit", ng-click="sendMessage()") Send
-        button(ng-click="startVote()") Start Vote
-        button(ng-click="endVote()") End Vote
         ul(id="messageList")
             div(ng-repeat="data in messageList")
                 button.btn.btn-default(type="submit", ng-click="vote($index)", id="vote{{$index}}") Vote!

@@ -12,14 +12,7 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
         $scope.message = "";
         $('#inputArea').prop('disabled', true);
     };
-/*
-    $scope.startVote = function() {
-        socket.emit('start vote');
-    };
-    $scope.endVote = function() {
-        socket.emit('end vote');
-    };
-*/
+
     $scope.vote = function(index) {
         $('#vote' + index).prop('disabled', true);
         $('#vote' + index).removeClass("btn-default");
