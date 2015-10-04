@@ -1,11 +1,11 @@
 #messageList {
     height: 80%;
     width: 90%;
-    border: 1px solid #c7c7c7;
+    border: 2px solid #c7c7c7;
     overflow-x: hidden;
     overflow-y: auto;
-    padding: 10px;
     background-color: white;
+    padding: 10px;
 }
 
 #messageList div li {
@@ -14,12 +14,13 @@
 }
 
 #messageList div button {
-    display:inline-block;
+    display: inline-block;
     margin-right: 10px;
     visibility: hidden;
 }
 
 #inputArea {
+    display: inline-block;
     width: 90%;
     padding: 0px;
     resize: none;

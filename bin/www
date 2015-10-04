@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 var debug = require('debug')('SDHacks2015');
 var app = require('../app');
+var TIME_BEFORE_VOTE = 15000;
+var TIME_TO_VOTE = 6000;
 
 app.set('port', process.env.PORT || 3000);
 
@@ -10,21 +12,55 @@ var server = app.listen(app.get('port'), function() {
 
 // Setting up socket.io
 var io = require('socket.io').listen(server);
+var voteStarted = false;
+
 io.on('connection', function(socket){
     console.log('a user connected');
+    if(!voteStarted) {
+        retrieveStory();
+        setTimeout(startVote, TIME_BEFORE_VOTE);
+    }
+    else {
+        setTimeout(retrieveStory, TIME_TO_VOTE);
+    }
+
     socket.on('disconnect', function(){
         console.log('user disconnected');
     });
     socket.on('chat message', function(msg){
         io.emit('emit message', msg);
     });
-    socket.on('start vote', function(){
-        io.emit('emit start vote');
-    });
     socket.on('vote', function(index){
         io.emit('emit vote', index);
     });
-    socket.on('end vote', function(){
-        io.emit('emit end vote');
+
+    socket.on('start vote timer', function(){
+        //io.emit('emit end vote');
+        setTimeout(startVote, TIME_BEFORE_VOTE);
     });
+    socket.on('end vote timer', function(){
+        //io.emit('emit start vote');
+        setTimeout(endVote, TIME_TO_VOTE);
+    });
+
+    function startVote() {
+        if(!voteStarted) {
+            console.log('starting vote');
+            voteStarted = true;
+            io.emit('emit start vote');
+        }
+    }
+
+    function endVote() {
+        if(voteStarted) {
+            console.log('ending vote');
+            voteStarted = false;
+            io.emit('emit end vote');
+        }
+    }
+
+    // Get story from database
+    function retrieveStory() {
+
+    }
 });
