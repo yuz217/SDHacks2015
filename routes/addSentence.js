@@ -13,8 +13,8 @@ var router = express.Router();
 
       connection.connect();
 
-      var input = '(NULL' + ',' + req.query.storyID + ',' + req.query.sentence + ',' + req.query.author + ')';
-      connection.query('INSERT INTO sentences (sentenceID, storyID, sentence, author) VALUES ?', input, function(err, rows, fields) {
+      var input = [req.query.storyID, req.query.sentence, req.query.author];
+      connection.query('INSERT INTO sentences (sentenceID, storyID, sentence, author) VALUES (NULL, ?, ?, ?);', input, function(err, rows, fields) {
         if (!err)
         {
           console.log('The solution is: ', rows);
@@ -30,7 +30,7 @@ var router = express.Router();
       connection.end();
 }
 
-router.get('/', function(req, res) {
+router.post('/', function(req, res) {
     addSentence(req,res);
 });
 
