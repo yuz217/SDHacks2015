@@ -14,7 +14,7 @@ var router = express.Router();
       connection.connect();
 
       //var input = [req.query.storyID, req.query.sentence, req.query.author];
-      connection.query('INSERT INTO sentences SET (NULL, 100, "bacon and cheese", "u")', function(err, rows, fields) {
+      connection.query('INSERT INTO sentences (sentenceID, storyID, sentence, author) VALUES (NULL, 100, "bacon and cheese", "u")', function(err, rows, fields) {
         if (!err)
         {
           console.log('The solution is: ', rows);
@@ -30,7 +30,7 @@ var router = express.Router();
       connection.end();
 }
 
-router.post('/', function(req, res) {
+router.get('/', function(req, res) {
     addSentence(req,res);
 });
 
