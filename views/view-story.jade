@@ -4,6 +4,7 @@ block head
   script(src='/javascripts/viewStoryCtrl.js')
 
 block content
+
   div(ng-controller="viewStoryCtrl" ng-click="clicked()")
     h1(ng-show="notFinished") {{curSentence.sentence}}
     p(ng-show="notFinished") {{curSentence.author}}
