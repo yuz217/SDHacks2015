@@ -13,7 +13,8 @@ var router = express.Router();
 
       connection.connect();
 
-      var input = [req.query.storyID, req.query.sentence, req.query.author];
+      //var input = [req.query.storyID, req.query.sentence, req.query.author];
+      var input = [20, "work pls", "ya"];
       connection.query('INSERT INTO sentences (sentenceID, storyID, sentence, author) VALUES (NULL, ?, ?, ?)', input, function(err, rows, fields) {
         if (!err)
         {
