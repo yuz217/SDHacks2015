@@ -6,8 +6,12 @@ block head
 
 
 block content
-  div(ng-controller="ReadCtrl")
-    div(ng-repeat="story in stories")
-      h1 {{story.firstSentence}}
-      p {{story.time}}
-      p {{story.views}}
+  div.row
+    div.col-lg-4
+    div.col-lg-4
+      div(ng-controller="ReadCtrl")
+        div(ng-repeat="story in stories")
+          h1 {{story.firstSentence}}
+          p {{story.time}}
+          p {{story.views}}
+    div.col-lg-4
