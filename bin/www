@@ -13,15 +13,16 @@ var server = app.listen(app.get('port'), function() {
 // Setting up socket.io
 var io = require('socket.io').listen(server);
 var voteStarted = false;
+var timer;
 
 io.on('connection', function(socket){
     console.log('a user connected');
     if(!voteStarted) {
         retrieveStory();
-        setTimeout(startVote, TIME_BEFORE_VOTE);
+        timer = setTimeout(startVote, TIME_BEFORE_VOTE);
     }
     else {
-        setTimeout(retrieveStory, TIME_TO_VOTE);
+        timer = setTimeout(retrieveStory, TIME_TO_VOTE);
     }
 
     socket.on('disconnect', function(){
@@ -36,6 +37,7 @@ io.on('connection', function(socket){
 
     socket.on('start vote timer', function(){
         //io.emit('emit end vote');
+        clearTimeout(timer);
         setTimeout(startVote, TIME_BEFORE_VOTE);
     });
     socket.on('end vote timer', function(){
