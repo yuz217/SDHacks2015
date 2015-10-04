@@ -31,7 +31,7 @@ var router = express.Router();
 }
 
 router.get('/', function(req, res) {
-    add_sentence(req,res);
+    addSentence(req,res);
 });
 
 module.exports = router;
