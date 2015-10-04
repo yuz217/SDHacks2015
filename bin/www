@@ -2,7 +2,7 @@
 var debug = require('debug')('SDHacks2015');
 var app = require('../app');
 var TIME_BEFORE_VOTE = 15000;
-var TIME_TO_VOTE = 6000;
+var TIME_TO_VOTE = 7000;
 
 app.set('port', process.env.PORT || 3000);
 

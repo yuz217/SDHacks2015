@@ -76,13 +76,14 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
                 $scope.messageList.splice(messageCounter + maxVotesIndex + 1, $scope.messageList.length - (maxVotesIndex+1));
                 $scope.messageList.splice(messageCounter, maxVotesIndex);
 
-                addSentence($scope.messageList[$scope.messageList.length]);
+                if($scope.messageList[$scope.messageList.length] != null)
+                    addSentence($scope.messageList[$scope.messageList.length]);
                 // load into database: $scope.messageList[$scope.messageList.length]
 
                 messageCounter++;
             }
             else {
-                loadDatabase();
+                setTimeout(loadDatabase, 1000)
                 // CALL DATABASE LOAD HERE and then start
             }
             $('#inputArea').prop('disabled', false);
@@ -110,6 +111,7 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
     }
 
     function addSentence(sentence) {
+        console.log("ADDING SENTENCE: " + sentence);
         $.get("http://45.55.30.181:3000/addSentence", {storyID: 100, sentence: sentence, author: document.cookie }, function(data) {
 
         });
