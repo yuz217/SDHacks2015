@@ -1,6 +1,9 @@
+
+
 var express = require('express');
 var mysql = require('mysql');
 var router = express.Router();
+
 
 
  function handle_sentence_table(req,res) {
@@ -13,7 +16,7 @@ var router = express.Router();
 
       connection.connect();
 
-      var postInput = req.body.storyID;
+      var postInput = req.query.storyID;
       connection.query('SELECT * FROM sentences WHERE storyID=?', [postInput], function(err, rows, fields) {
         if (!err)
         {
