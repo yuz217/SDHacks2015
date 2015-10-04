@@ -13,7 +13,7 @@ var router = express.Router();
 
       connection.connect();
 
-        var input = {storyID: req.query.storyID, isComplete: req.query.isComplete, time: req.query.time, views: req.query.views, firstSentence: req.query.firstSentence, numUsers: req.query.numUsers};
+        var input = {storyID: 'NULL', isComplete: req.query.isComplete, time: req.query.time, views: req.query.views, firstSentence: req.query.firstSentence, numUsers: req.query.numUsers};
         connection.query('INSERT INTO stories SET ?', input, function(err, rows, fields) {
         if (!err)
         {
