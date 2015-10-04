@@ -9,7 +9,7 @@ myApp.controller('viewStoryCtrl',function($scope)
 	
 	var storyID = window.location.search.slice(9);
 		
-	$.get("http://45.55.30.181:3000/getSentences", {storyID: 3}, function(data)
+	$.get("http://45.55.30.181:3000/getSentences", {storyID: storyID}, function(data)
 	{
 		//var parsed = JSON.parse(data);
 		for (var i = 0; i < data.length; i++)
