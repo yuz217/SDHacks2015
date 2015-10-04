@@ -1,0 +1,23 @@
+.navbar-inner {
+  position: relative;
+}
+
+.navbar-nav {
+  background-color: white;
+  float: none;
+  text-align: center;
+  display: table;
+  width: 100%;
+  margin: 0%;
+}
+
+.navbar-nav li {
+  float: none;
+  display: table-cell;
+  text-align: center;
+}
+
+.navbar-nav li a {
+  color: bisque;
+  font-size: 25px;
+}
