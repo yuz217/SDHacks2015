@@ -12,6 +12,7 @@ var read = require('./routes/read');
 var write = require('./routes/write');
 var getStories = require('./routes/getStories');
 var getSentences = require('./routes/getSentences');
+var viewStory = require('./routes/viewStory');
 
 var app = express();
 
@@ -33,7 +34,8 @@ app.use('/users', users);
 app.use('/read', read);
 app.use('/write', write);
 app.use('/getStories', getStories);
-app.use('/getSentences', getSentences)
+app.use('/getSentences', getSentences);
+app.use('/viewStory', viewStory);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
