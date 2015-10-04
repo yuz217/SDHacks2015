@@ -1,0 +1,9 @@
+.modal {
+  top: 10%;
+  bottom: 5%;
+}
+
+.modal-body {
+  max-height: 100%;
+  height: 90%;
+}
