@@ -76,15 +76,13 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
                 $scope.messageList.splice(messageCounter + maxVotesIndex + 1, $scope.messageList.length - (maxVotesIndex+1));
                 $scope.messageList.splice(messageCounter, maxVotesIndex);
 
-                if($scope.messageList[$scope.messageList.length] != null)
-                    addSentence($scope.messageList[$scope.messageList.length]);
-                // load into database: $scope.messageList[$scope.messageList.length]
+                if($scope.messageList[$scope.messageList.length-1] != null)
+                    addSentence($scope.messageList[$scope.messageList.length-1].msg);
 
                 messageCounter++;
             }
             else {
                 setTimeout(loadDatabase, 1000)
-                // CALL DATABASE LOAD HERE and then start
             }
             $('#inputArea').prop('disabled', false);
         });
