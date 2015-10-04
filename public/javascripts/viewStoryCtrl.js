@@ -5,7 +5,7 @@ myApp.controller('viewStoryCtrl',function($scope)
 	$scope.finished = false;
 	$scope.notFinished = true;
 
-	$scope.fullStory = "";
+	$scope.textOnly = [];
 
 	var storyID = window.location.search.slice(9);
 
@@ -20,11 +20,15 @@ myApp.controller('viewStoryCtrl',function($scope)
 				sentence:obj.sentence,
 				author:obj.author
 			});
-
-			$scope.fullStory += obj.sentence;
+			
+			$scope.textOnly.push({
+				sentence:obj.sentence
+			});
 		}
 		
-		$scope.fullStory += " FiN.";
+		$scope.textOnly.push ({
+			sentence:" FiN."
+		});
 		
 		$scope.curSentence = $scope.sentences[0];
 

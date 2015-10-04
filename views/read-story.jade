@@ -10,5 +10,5 @@ block content
     div.text-center
       h1(ng-show="notFinished") {{curSentence.sentence}}
       p(ng-show="notFinished") - {{curSentence.author}}
-      h2(ng-show="finished") {{fullStory}}
-      
+      div(ng-repeat="text in textOnly" ng-show="finished")
+        h3 {{text.sentence}}
