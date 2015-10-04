@@ -3,7 +3,7 @@ var mysql = require('mysql');
 var router = express.Router();
 
 
- function handle_database(req,res) {
+ function addSentence(req,res) {
       var connection = mysql.createConnection({
         host     : 'localhost',
         user     : 'root',
@@ -13,7 +13,7 @@ var router = express.Router();
 
       connection.connect();
 
-      var input = '(' + req.query.sentenceID + ',' + req.query.storyID + ',' + req.query.sentence + ',' + req.query.author + ')';
+      var input = '(NULL' + ',' + req.query.storyID + ',' + req.query.sentence + ',' + req.query.author + ')';
       connection.query('INSERT INTO sentences (sentenceID, storyID, sentence, author) VALUES ?', input, function(err, rows, fields) {
         if (!err)
         {
@@ -31,7 +31,7 @@ var router = express.Router();
 }
 
 router.get('/', function(req, res) {
-    handle_database(req,res);
+    add_sentence(req,res);
 });
 
 module.exports = router;
