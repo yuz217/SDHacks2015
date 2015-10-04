@@ -35,6 +35,7 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
 
     socket.on('emit start vote', function() {
         $scope.$apply(function() {
+            $('#inputArea').prop('disabled', true);
             votesList = [];
             $("#messageList div button").css("visibility", "visible");
             for(var i = 0; i < $scope.messageList.length - messageCounter; i++) {
