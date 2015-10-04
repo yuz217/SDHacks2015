@@ -30,7 +30,7 @@ var router = express.Router();
       connection.end();
 }
 
-router.get('/', function(req, res) {
+router.post('/', function(req, res) {
     addSentence(req,res);
 });
 
