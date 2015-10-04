@@ -12,7 +12,7 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
     $('#inputArea').prop('disabled', true);
 
     $scope.sendMessage = function() {
-        socket.emit('chat message', $scope.message);
+        socket.emit('chat message', $scope.message, document.cookie);
         $scope.message = "";
         $('#inputArea').prop('disabled', true);
         $('#sendButton').prop('disabled', true);
@@ -29,10 +29,10 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
         }
     };
 
-    socket.on('emit message', function(msg){
+    socket.on('emit message', function(msg, author){
         if(begin) {
             $scope.$apply(function() {
-                $scope.messageList.push({ msg: msg, votes: 0 });
+                $scope.messageList.push({ msg: msg, votes: 0, author: author });
             });
         }
     });
@@ -73,7 +73,7 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
                 $scope.messageList.splice(messageCounter, maxVotesIndex);
 
                 if($scope.messageList[$scope.messageList.length-1] != null)
-                    addSentence($scope.messageList[$scope.messageList.length-1].msg);
+                    addSentence($scope.messageList[$scope.messageList.length-1]);
 
                 messageCounter++;
             }
@@ -107,8 +107,8 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
         });
     }
 
-    function addSentence(sentence) {
-        $.get("http://45.55.30.181:3000/addSentence", {storyID: 100, sentence: sentence, author: document.cookie }, function(data) {
+    function addSentence(message) {
+        $.get("http://45.55.30.181:3000/addSentence", {storyID: 100, sentence: message.msg, author: message.author }, function(data) {
 
         });
     }

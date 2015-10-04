@@ -23,8 +23,8 @@ io.on('connection', function(socket){
     socket.on('disconnect', function(){
         console.log('user disconnected');
     });
-    socket.on('chat message', function(msg){
-        io.emit('emit message', msg);
+    socket.on('chat message', function(msg, author){
+        io.emit('emit message', msg, author);
     });
     socket.on('vote', function(index){
         io.emit('emit vote', index);
