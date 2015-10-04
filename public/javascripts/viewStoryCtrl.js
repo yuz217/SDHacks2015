@@ -23,7 +23,7 @@ myApp.controller('viewStoryCtrl',function($scope)
 			$scope.fullStory += obj.sentence;
 		}
 		
-		$scope.fullStory += " The End.";
+		$scope.fullStory += " FiN.";
 		
 		$scope.curSentence = $scope.sentences[0];
 

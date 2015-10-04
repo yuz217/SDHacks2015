@@ -58,6 +58,6 @@ myApp.controller('ReadCtrl',function($scope)
 	$scope.goToStory = function(id)
 	{
 		console.log("Going to story" + id);
-		window.location = "/viewStory?storyID=" + id;
+		window.location = "/story?storyID=" + id;
 	}
 })
