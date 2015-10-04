@@ -14,6 +14,12 @@ var getStories = require('./routes/getStories');
 var getSentences = require('./routes/getSentences');
 var addSentence = require('./routes/addSentence');
 var addStory = require('./routes/addStory');
+var incrementViews = require('./routes/incrementViews');
+var incrementNumUsers = require('./routes/incrementNumUsers');
+var decrementNumUsers = require('./routes/decrementNumUsers');
+var finishStory = require('./routes/finishStory');
+
+var viewStory = require('./routes/viewStory');
 var updateStory = require('./routes/updateStory');
 
 var app = express();
@@ -39,6 +45,12 @@ app.use('/getStories', getStories);
 app.use('/getSentences', getSentences);
 app.use('/addSentence', addSentence);
 app.use('/addStory', addStory);
+app.use('/finishStory', finishStory);
+app.use('/incrementViews', incrementViews);
+app.use('/incrementNumUsers', incrementNumUsers);
+app.use('/decrementNumUsers', decrementNumUsers);
+app.use('/viewStory', viewStory);
+=======
 app.use('/updateStory', updateStory);
 
 // catch 404 and forward to error handler
