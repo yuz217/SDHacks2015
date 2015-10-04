@@ -12,5 +12,9 @@ block content
         form
             input(id="inputArea", autofocus, ng-model="message")
             button(type="submit", ng-click="sendMessage()") Send
-        button(ng-click="end()") End
-        ul(id="messagesList", ng-bind-html="messagesListSafe")
+        button(ng-click="startVote()") Start Vote
+        button(ng-click="endVote()") End Vote
+        ul(id="messageList")
+            div(ng-repeat="data in messageList")
+                button(type="submit", ng-click="vote($index)") Vote!
+                li {{data.votes}} {{data.msg}}

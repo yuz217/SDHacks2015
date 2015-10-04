@@ -1,4 +1,4 @@
-#messagesList {
+#messageList {
     height: 80%;
     width: 90%;
     border: 1px solid #c7c7c7;
@@ -8,12 +8,15 @@
     background-color: white;
 }
 
-#messagesList li {
+#messageList div li {
+    display:inline-block;
     list-style-type: none;
 }
 
-#messagesList li button {
-    margin-right: 2%;
+#messageList div button {
+    display:inline-block;
+    margin-right: 10px;
+    visibility: hidden;
 }
 
 #inputArea {
