@@ -1,0 +1,15 @@
+extends layout
+
+block head
+  
+  link(rel='stylesheet' , href='/stylesheets/read-select.css')
+
+
+block content
+
+  div(ng-controller="ReadCtrl")
+    div(ng-repeat="story in stories")
+      div.col-lg-4
+        h1(ng-click="goToStory(story.storyID)") {{story.firstSentence}}
+        p {{story.time}}
+        p {{story.views}}          

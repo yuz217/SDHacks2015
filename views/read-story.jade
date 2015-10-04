@@ -1,0 +1,14 @@
+extends layout
+
+block head
+  script(src='/javascripts/viewStoryCtrl.js')
+  link(rel='stylesheet' , href='/stylesheets/read-story.css')
+
+block content
+
+  div(ng-controller="viewStoryCtrl" ng-click="clicked()")
+    div.text-center
+      h1(ng-show="notFinished") {{curSentence.sentence}}
+      p(ng-show="notFinished") - {{curSentence.author}}
+      h2(ng-show="finished") {{fullStory}}
+      
