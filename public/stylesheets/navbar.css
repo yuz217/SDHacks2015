@@ -8,7 +8,7 @@
   text-align: center;
   display: table;
   width: 100%;
-  margin: 0;
+  margin: 0%;
 }
 
 .navbar-nav li {
@@ -18,6 +18,6 @@
 }
 
 .navbar-nav li a {
-  color: aqua;
+  color: bisque;
   font-size: 25px;
 }
