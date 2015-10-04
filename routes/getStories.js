@@ -13,7 +13,7 @@ var router = express.Router();
 
       connection.connect();
 
-      connection.query('SELECT * from stories ORDER BY DESC', function(err, rows, fields) {
+      connection.query('SELECT * from stories ORDER BY storyID DESC', function(err, rows, fields) {
         if (!err)
         {
           console.log('The solution is: ', rows);
