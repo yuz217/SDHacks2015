@@ -2,10 +2,11 @@ extends layout
 
 block head
    link(rel='stylesheet', href='/stylesheets/style-landing.css')
+   script(src="/javascripts/indexCtrl.js")
 
 block content
 
-  div.container
+  div.container(ng-controller="indexCtrl")
 
     div.row
     
@@ -14,6 +15,6 @@ block content
       div.col-md-8
         div.text-center
           h1 WELCOME TO FiN,
-          p where you FiNish off your friends' _
+          p(id="blinker") where you FiNish off your friends' _
   
       div.col-md-2
