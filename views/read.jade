@@ -10,26 +10,40 @@ block content
   div(ng-controller="ReadCtrl")
     div.row
       div.text-center
-        p {{firstSentence}}
-        p {{firstTime}}
-        p {{firstViews}}
-        p {{secondSentence}}
-        p {{secondTime}}
-        p {{secondViews}}
-        p {{thirdSentence}}
-        p {{thirdTime}}
-        p {{thirdViews}}
-        p {{fourthSentence}}
-        p {{fourthTime}}
-        p {{fourthViews}}
-        p {{fifthSentence}}
-        p {{fifthTime}}
-        p {{fifthViews}}
-        p {{sixthSentence}}
-        p {{sixthTime}}
-        p {{sixthViews}}
-        //div(ng-repeat="story in stories")
-        //  div.col-lg-4
-        //    h1(ng-click="goToStory(story.storyID)") {{firstSentence}}
-        //    p {{story.time}}
-        //    p {{story.views}}
+        div.col-lg-4
+          p {{firstSentence}}
+          p {{firstTime}}
+          p {{firstViews}}
+        div.col-lg-4
+          p {{secondSentence}}
+          p {{secondTime}}
+          p {{secondViews}}
+        div.col-lg-4
+          p {{thirdSentence}}
+          p {{thirdTime}}
+          p {{thirdViews}}
+    div.row
+      div.text-center
+        div.col-lg-4
+          p {{fourthSentence}}
+          p {{fourthTime}}
+          p {{fourthViews}}
+        div.col-lg-4
+          p {{fifthSentence}}
+          p {{fifthTime}}
+          p {{fifthViews}}
+        div.col-lg-4
+          p {{sixthSentence}}
+          p {{sixthTime}}
+          p {{sixthViews}}
+          //div(ng-repeat="story in stories")
+          //  div.col-lg-4
+          //    h1(ng-click="goToStory(story.storyID)") {{firstSentence}}
+          //    p {{story.time}}
+          //    p {{story.views}}
+          
+          #jwplayer
+            script(type='text/javascript').
+              var givenheight = 50%
+              var givenwidth = 33.33%
+              var setwidth2 = { percentage: givenheight/9*16/givenwidth*100 + "%"}
