@@ -1,2 +1,10 @@
 h1 {font: 30px Gill Sans, sans-serif;
 }
+
+.row {
+  padding-top: 12%;
+}
+
+p {
+  min-height: 10%;
+}
