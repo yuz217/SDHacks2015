@@ -4,6 +4,8 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
     $scope.message = "";
     $scope.messageList = [];
 
+    $scope.time = 15;
+
     var votesList;
     var messageCounter = 0;
 
@@ -25,6 +27,14 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
             socket.emit('vote', index);
         }
     };
+
+    socket.on('emit time', function(time){
+        if(begin) {
+            $scope.$apply(function() {
+                $scope.time = time
+            });
+        }
+    });
 
     socket.on('emit message', function(msg){
         if(begin) {
@@ -65,14 +75,43 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
                 var maxVotesIndex = votesList.indexOf(Math.max.apply(Math, votesList));
                 $scope.messageList.splice(messageCounter + maxVotesIndex + 1, $scope.messageList.length - (maxVotesIndex+1));
                 $scope.messageList.splice(messageCounter, maxVotesIndex);
+
+                addSentence($scope.messageList[$scope.messageList.length]);
+                // load into database: $scope.messageList[$scope.messageList.length]
+
                 messageCounter++;
             }
             else {
-                // CALL DATABASE HERE and then start
+                loadDatabase();
+                // CALL DATABASE LOAD HERE and then start
             }
             $('#inputArea').prop('disabled', false);
         });
         socket.emit('start vote timer');
         begin = true;
     });
+
+    function loadDatabase() {
+        $.get("http://45.55.30.181:3000/getSentences", {storyID: 100}, function(data)
+        {
+            messageCounter = data.length;
+            for (var i = 0; i < data.length; i++)
+            {
+                var obj = data[i];
+                $scope.messageList.push({
+                    msg: obj.sentence,
+                    votes: 0
+                });
+            }
+
+            $scope.$digest();
+            $("#messageList div button").remove();
+        });
+    }
+
+    function addSentence(sentence) {
+        $.get("http://45.55.30.181:3000/addSentence", {storyID: 100, sentence: sentence, author: document.cookie }, function(data) {
+
+        });
+    }
 });
