@@ -1,5 +1,5 @@
 # SDHacks2015
-Devpost link: 
+Devpost link: http://devpost.com/software/fin-c41w2t
 ## Inspiration
 Story telling has historically always been an important means of connecting with other people. We wanted to bring this principle into today's online-driven community with a fun twist. 
 
