@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var cors = require('cors');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -7,6 +8,8 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var read = require('./routes/read');
+var write = require('./routes/write');
 var getStories = require('./routes/getStories');
 var getSentences = require('./routes/getSentences');
 
@@ -23,12 +26,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/read', read);
+app.use('/write', write);
 app.use('/getStories', getStories);
 app.use('/getSentences', getSentences)
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

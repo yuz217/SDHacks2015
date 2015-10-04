@@ -1,0 +1,16 @@
+extends layout
+
+block head
+    link(href="/stylesheets/write-story.css", rel="stylesheet")
+
+    script(type='text/javascript', src='/bower_components/socket.io-client/socket.io.js')
+    script(type='text/javascript', src='/javascripts/write-story.js')
+
+block content
+    h1 Write a Story
+    div(ng-controller="StoryCtrl")
+        form
+            input(id="inputArea", autofocus, ng-model="message")
+            button(type="submit", ng-click="sendMessage()") Send
+        button(ng-click="end()") End
+        ul(id="messagesList", ng-bind-html="messagesListSafe")
