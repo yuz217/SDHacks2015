@@ -18,4 +18,13 @@ io.on('connection', function(socket){
     socket.on('chat message', function(msg){
         io.emit('emit message', msg);
     });
+    socket.on('start vote', function(){
+        io.emit('emit start vote');
+    });
+    socket.on('vote', function(index){
+        io.emit('emit vote', index);
+    });
+    socket.on('end vote', function(){
+        io.emit('emit end vote');
+    });
 });
