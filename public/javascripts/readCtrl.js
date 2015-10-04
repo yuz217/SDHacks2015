@@ -25,4 +25,10 @@ myApp.controller('ReadCtrl',function($scope)
 
 		$scope.$digest();
 	})
+	
+	$scope.goToStory = function(id)
+	{
+		console.log("Going to story" + id);
+		window.location = "/viewStory?storyID=" + id;
+	}
 })
