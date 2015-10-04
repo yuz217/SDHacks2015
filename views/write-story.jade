@@ -11,7 +11,7 @@ block content
     div(ng-controller="StoryCtrl")
         form
             input.form-control(id="inputArea", autofocus, ng-model="message")
-            button.btn.btn-primary(type="submit", ng-click="sendMessage()") Send
+            button.btn.btn-primary(id="sendButton", type="submit", ng-click="sendMessage()") Send
         ul(id="messageList")
             div(ng-repeat="data in messageList")
                 button.btn.btn-default(type="submit", ng-click="vote($index)", id="vote{{$index}}") Vote!

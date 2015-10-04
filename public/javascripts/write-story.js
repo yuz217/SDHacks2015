@@ -15,6 +15,9 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
         socket.emit('chat message', $scope.message);
         $scope.message = "";
         $('#inputArea').prop('disabled', true);
+        $('#sendButton').prop('disabled', true);
+        $('#sendButton').addClass("btn-default");
+        $('#sendButton').removeClass("btn-primary");
     };
 
     $scope.vote = function(index) {
@@ -38,6 +41,9 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
         if(begin) {
             $scope.$apply(function() {
                 $('#inputArea').prop('disabled', true);
+                $('#sendButton').prop('disabled', true);
+                $('#sendButton').addClass("btn-default");
+                $('#sendButton').removeClass("btn-primary");
                 votesList = [];
                 $("#messageList div button").css("visibility", "visible");
                 for(var i = 0; i < $scope.messageList.length - messageCounter; i++) {
@@ -75,6 +81,9 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
                 setTimeout(loadDatabase, 1000)
             }
             $('#inputArea').prop('disabled', false);
+            $('#sendButton').prop('disabled', false);
+            $('#sendButton').addClass("btn-primary");
+            $('#sendButton').removeClass("btn-default");
         });
         socket.emit('start vote timer');
         begin = true;
