@@ -1,26 +1,50 @@
 myApp.controller('viewStoryCtrl',function($scope)
 {
 	console.log('viewStoryCtrl');
-	//$scope.stories = [];
-	/*$.get("http://45.55.30.181:3000/getStories", {}, function(data)
+	$scope.sentences = [];
+	$scope.finished = false;
+	$scope.notFinished = true;
+	
+	$scope.fullStory = "";
+	
+	var storyID = window.location.search.slice(9);
+		
+	$.get("http://45.55.30.181:3000/getSentences", {storyID: 3}, function(data)
 	{
 		//var parsed = JSON.parse(data);
-
-		var parsed = data;
-		for (var i = 0; i < parsed.length; i++)
+		for (var i = 0; i < data.length; i++)
 		{
-			var obj = parsed[i];
-			if (obj.isComplete)
-			{
-				$scope.stories.push({
-				storyID:obj.storyID,
-				time:obj.time,
-				views:obj.views,
-				firstSentence:obj.firstSentence
-				});
-			}
+			var obj = data[i];
+			$scope.sentences.push({
+				sentence:obj.sentence,
+				author:obj.author	
+			});
+			
+			$scope.fullStory += obj.sentence;
 		}
+		
+		$scope.fullStory += " The End.";
+		
+		$scope.curSentence = $scope.sentences[0];
 
 		$scope.$digest();
-	})*/
+	});
+	
+	$scope.clicked = function()
+	{
+		$scope.sentences.shift();
+		
+		if ($scope.sentences.length == 0)
+		{
+			$scope.finished = true;
+			$scope.notFinished = false;
+		}
+		else
+		{
+			$scope.curSentence = $scope.sentences[0];	
+		}
+				
+		//$scope.$digest();
+
+	}
 })
