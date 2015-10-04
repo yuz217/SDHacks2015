@@ -1,5 +1,3 @@
-var myApp = angular.module('fin', []);
-
 myApp.controller('writeSelectCtrl', function($scope) {
 	console.log('writeSelectCtrl');
 	$scope.stories = [];
