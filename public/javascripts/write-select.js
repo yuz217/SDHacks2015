@@ -10,11 +10,13 @@ myApp.controller('writeSelectCtrl', function($scope) {
 		{
 			var obj = parsed[i];
 
-			$scope.stories.push({
-			storyID:obj.storyID,
-			numUsers:obj.numUsers,
-			firstSentence:obj.firstSentence
-			});
+			if(!obj.isComplete) {
+				$scope.stories.push({
+					storyID:obj.storyID,
+					numUsers:obj.numUsers,
+					firstSentence:obj.firstSentence
+				});
+			}
 		}
 
 		$scope.$digest();

@@ -12,21 +12,18 @@ myApp.controller('ReadCtrl',function($scope)
 		for (var i = 0; i < parsed.length; i++)
 		{
 			var obj = parsed[i];
-			if (obj.isComplete)
-			{		
-				$scope.stories.push({
+			$scope.stories.push({
 				storyID:obj.storyID,
 				time:obj.time,
 				views:obj.views,
 				firstSentence:obj.firstSentence
-				});
-				
-			}
+			});
+
 		}
 
 		$scope.$digest();
 	})
-	
+
 	$scope.goToStory = function(id)
 	{
 		console.log("Going to story" + id);
