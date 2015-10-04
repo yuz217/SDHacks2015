@@ -10,7 +10,7 @@ block content
     div.row
       div.text-center
         div(ng-repeat="story in stories")
-          div.col-lg-4
+          div.col-lg-2
             h1(ng-click="goToStory(story.storyID)") {{story.firstSentence}}
             p {{story.time}}
             p {{story.views}}
