@@ -10,6 +10,7 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
     $scope.sendMessage = function() {
         socket.emit('chat message', $scope.message);
         $scope.message = "";
+        $('#inputArea').prop('disabled', true);
     };
 
     $scope.startVote = function() {
@@ -55,6 +56,7 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
             $scope.messageList.splice(messageCounter + maxVotesIndex + 1, $scope.messageList.length - (maxVotesIndex+1));
             $scope.messageList.splice(messageCounter, maxVotesIndex);
             messageCounter++;
+            $('#inputArea').prop('disabled', false);
         });
     });
 });
