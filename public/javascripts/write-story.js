@@ -12,16 +12,18 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
         $scope.message = "";
         $('#inputArea').prop('disabled', true);
     };
-
+/*
     $scope.startVote = function() {
         socket.emit('start vote');
     };
-
     $scope.endVote = function() {
         socket.emit('end vote');
     };
-
+*/
     $scope.vote = function(index) {
+        $('#vote' + index).prop('disabled', true);
+        $('#vote' + index).removeClass("btn-default");
+        $('#vote' + index).addClass("btn-success");
         socket.emit('vote', index);
     };
 
@@ -39,6 +41,7 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
                 votesList[i] = 0;
             }
         });
+        socket.emit('end vote timer');
     });
 
     socket.on('emit vote', function(index){
@@ -58,5 +61,6 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
             messageCounter++;
             $('#inputArea').prop('disabled', false);
         });
+        socket.emit('start vote timer');
     });
 });
