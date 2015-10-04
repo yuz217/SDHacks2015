@@ -20,5 +20,11 @@ myApp.controller('writeSelectCtrl', function($scope) {
 		}
 
 		$scope.$digest();
-	})
+	});
+	
+		$scope.goToWriteStory = function(id)
+	{
+		console.log("Going to write story" + id);
+		window.location = "/write/story?storyID=" + id;
+	}
 });

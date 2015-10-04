@@ -18,5 +18,5 @@ block content
           button(type="submit" class="btn btn-primary" id="submit") Enter
           
     div(ng-repeat="story in stories")
-      h1 {{story.firstSentence}}
+      h1(ng-click="goToWriteStory(story.storyID)") {{story.firstSentence}}
       p {{story.numUsers}} / 20
