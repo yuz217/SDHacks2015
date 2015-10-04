@@ -14,7 +14,8 @@ var router = express.Router();
       connection.connect();
 
       //var input = [req.query.storyID, req.query.sentence, req.query.author];
-      connection.query('INSERT INTO sentences (sentenceID, storyID, sentence, author) VALUES (NULL, ?, ?, ?)', [20, "a", "b"], function(err, rows, fields) {
+      var input = {sentenceID: NULL, storyID: 5, sentence: "yolo", author: "swog"};
+      connection.query('INSERT INTO sentences SET ?', input, function(err, rows, fields) {
         if (!err)
         {
           console.log('The solution is: ', rows);
