@@ -4,10 +4,11 @@ myApp.controller('viewStoryCtrl',function($scope)
 	$scope.sentences = [];
 	$scope.finished = false;
 	$scope.notFinished = true;
-	
+
 	$scope.fullStory = "";
-	
+
 	var storyID = window.location.search.slice(9);
+
 		
 	$.get("http://45.55.30.181:3000/getSentences", {storyID: storyID}, function(data)
 	{
@@ -17,23 +18,23 @@ myApp.controller('viewStoryCtrl',function($scope)
 			var obj = data[i];
 			$scope.sentences.push({
 				sentence:obj.sentence,
-				author:obj.author	
+				author:obj.author
 			});
-			
+
 			$scope.fullStory += obj.sentence;
 		}
-		
+
 		$scope.fullStory += " The End.";
-		
+
 		$scope.curSentence = $scope.sentences[0];
 
 		$scope.$digest();
 	});
-	
+
 	$scope.clicked = function()
 	{
 		$scope.sentences.shift();
-		
+
 		if ($scope.sentences.length == 0)
 		{
 			$scope.finished = true;
@@ -41,9 +42,9 @@ myApp.controller('viewStoryCtrl',function($scope)
 		}
 		else
 		{
-			$scope.curSentence = $scope.sentences[0];	
+			$scope.curSentence = $scope.sentences[0];
 		}
-				
+
 		//$scope.$digest();
 
 	}
