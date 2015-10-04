@@ -13,7 +13,7 @@ var write = require('./routes/write');
 var getStories = require('./routes/getStories');
 var getSentences = require('./routes/getSentences');
 var addSentence = require('./routes/addSentence');
-var addstory = require('./routes/addStory');
+var addStory = require('./routes/addStory');
 var updateStory = require('./routes/updateStory');
 var viewStory = require('./routes/viewStory');
 
