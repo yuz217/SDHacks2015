@@ -19,8 +19,6 @@ var incrementNumUsers = require('./routes/incrementNumUsers');
 var decrementNumUsers = require('./routes/decrementNumUsers');
 var finishStory = require('./routes/finishStory');
 
-var viewStory = require('./routes/viewStory');
-var updateStory = require('./routes/updateStory');
 
 var app = express();
 
@@ -49,9 +47,6 @@ app.use('/finishStory', finishStory);
 app.use('/incrementViews', incrementViews);
 app.use('/incrementNumUsers', incrementNumUsers);
 app.use('/decrementNumUsers', decrementNumUsers);
-app.use('/viewStory', viewStory);
-=======
-app.use('/updateStory', updateStory);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
