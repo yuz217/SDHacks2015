@@ -8,6 +8,9 @@ block head
 
 block content
     h1 Write a Story
+    p. 
+      Please wait for ~30 seconds to start.<br>
+      20 seconds to write, 10 seconds to vote.  
     div(ng-controller="StoryCtrl")
         form
             input.form-control(id="inputArea", autofocus, ng-model="message")
