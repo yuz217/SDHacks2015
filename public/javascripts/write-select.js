@@ -1,7 +1,7 @@
 myApp.controller('writeSelectCtrl', function($scope) {
 	console.log('writeSelectCtrl');
 	$scope.stories = [];
-	$.get("http://45.55.30.181:3000/getStories", {}, function(data)
+	$.get("http://45.55.4.115:3000/getStories", {}, function(data)
 	{
 		//var parsed = JSON.parse(data);
 

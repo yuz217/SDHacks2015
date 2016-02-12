@@ -12,7 +12,7 @@ var router = express.Router();
 
         host     : 'localhost',
         user     : 'root',
-        password : 'keyboard cat',
+        password : 'finishhim',
         database : 'SDHacks2015'
       });
 

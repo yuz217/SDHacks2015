@@ -90,7 +90,7 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
     });
 
     function loadDatabase() {
-        $.get("http://45.55.30.181:3000/getSentences", {storyID: 100}, function(data)
+        $.get("http://45.55.4.115:3000/getSentences", {storyID: 100}, function(data)
         {
             messageCounter = data.length;
             for (var i = 0; i < data.length; i++)
@@ -108,7 +108,7 @@ myApp.controller('StoryCtrl', function($scope, $sce) {
     }
 
     function addSentence(sentence) {
-        $.get("http://45.55.30.181:3000/addSentence", {storyID: 100, sentence: sentence, author: document.cookie }, function(data) {
+        $.get("http://45.55.4.115:3000/addSentence", {storyID: 100, sentence: sentence, author: document.cookie }, function(data) {
 
         });
     }
